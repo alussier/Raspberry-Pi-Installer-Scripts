@@ -271,12 +271,6 @@ rm -rf /var/cache/lightdm
 ln -s /tmp /var/lib/lightdm
 ln -s /tmp /var/cache/lightdm
 
-# Make SSH work
-replaceAppend /etc/ssh/sshd_config "^.*UsePrivilegeSeparation.*$" "UsePrivilegeSeparation no"
-# bbro method (not working in Jessie?):
-#rmdir /var/run/sshd
-#ln -s /tmp /var/run/sshd
-
 # Change spool permissions in var.conf (rondie/Margaret fix)
 replace /usr/lib/tmpfiles.d/var.conf "spool\s*0755" "spool 1777"
 
